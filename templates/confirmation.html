@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Order Confirmation</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+
+</head>
+<body>
+    <h1>Delights Cafe</h1>
+    <h2>Order Confirmation</h2>
+    <p><center>Your order has been placed successfully. Thank you!</center></p>
+    <ul>
+        {% for item in cart %}
+            <li>{{ item['name'] }} - Rs.{{ item['price'] }}</li>
+        {% endfor %}
+    </ul>
+    <p><center>Total Price: Rs.{{ total_price }}</center></p>
+</body>
+</html>

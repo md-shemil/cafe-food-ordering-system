@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Cart</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+
+</head>
+<body>
+    <h1>Delights Cafe</h1>
+    <h2>Shopping Cart</h2>
+    <ul>
+        {% for item in cart %}
+            <li>{{ item['name'] }} - Rs.{{ item['price'] }}
+                <a href="/remove_from_cart/{{ item['id'] }}">Remove from Cart</a>
+            </li>
+        {% endfor %}
+    </ul>
+    <p><center>Total Price: Rs.{{ total_price }}</center></p>
+    <form action="/place_order" method="POST">
+        <button type="submit">Place Order</button>
+    </form>
+</body>
+</html>
